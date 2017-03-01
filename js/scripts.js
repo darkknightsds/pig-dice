@@ -36,7 +36,9 @@ $(document).ready(function() {
     var newRoll = new Roll(roll);
     rollValue = newRoll.addRoll();
     if (rollValue === 1) {
-      $("#roundTotal").append("<li>" + "Your turn is over!" + "</li>");
+      rollValue = 0;
+      $("#roundTotal").children().remove();
+      $("#roundTotal").append("<li>" + "1: Your turn is over!" + "</li>");
     } else {
       $("#roundTotal").append("<li>" + rollValue + "</li>");
     }
