@@ -19,11 +19,11 @@ $(document).ready(function() {
   $("#rollForm").submit(function() {
     event.preventDefault();
     var newRoll = new Roll(roll);
-    console.log(newRoll);
-      if (newRoll.addRoll() === 1) {
-        $("#roundTotal").append("<li>" + "Your turn is over!" + "</li>");
-      } else {
-        $("#roundTotal").append("<li>" + newRoll.addRoll() + "</li>");
-      }
+    var rollValue = newRoll.addRoll();
+    if (rollValue === 1) {
+      $("#roundTotal").append("<li>" + "Your turn is over!" + "</li>");
+    } else {
+      $("#roundTotal").append("<li>" + rollValue + "</li>");
+    }
   });
 });
