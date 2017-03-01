@@ -34,6 +34,7 @@ $(document).ready(function() {
     }
     $("#roundTotal").children().remove();
     totalScoreArray = [];
+    $("#rollButton").show();
   });
 
   $("#rollForm").submit(function() {
@@ -45,6 +46,7 @@ $(document).ready(function() {
       totalScoreArray = [];
       $("#roundTotal").children().remove();
       $("#roundTotal").append("<li>" + "1: Your turn is over! Press hold to pass." + "</li>");
+      $("#rollButton").hide();
     } else {
       $("#roundTotal").append("<li>" + rollValue + "</li>");
     }
