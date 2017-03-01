@@ -1,17 +1,24 @@
 //Back-end logic:
-function Dice(number1, number2, number3, number4, number5, number6) {
-  this.number1 = 1;
-  this.number2 = 2;
-  this.number3 = 3;
-  this.number4 = 4;
-  this.number5 = 5;
-  this.number6 = 6;
-}
-
-
+// function Player(playerName, roundScore, totalScore) {
+//   this.playerName = playerName;
+//   this.roundScore = roundScore;
+//   this.totalScore = totalScore;
+// }
+var roll = [];
+function Roll(roll) {
+  this.roll = roll
+};
+Roll.prototype.addRoll = function(roll) {
+  min = Math.ceil(1);
+  max = Math.floor(6);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+  return this.roll
+};
 //Front-end logic:
 $(document).ready(function() {
   $("#rollForm").submit(function() {
     event.preventDefault();
+    var newRoll = new Roll(roll);
+    $("#roundTotal").append("<li>" + newRoll.addRoll() + "</li>");
   });
 });
