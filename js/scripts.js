@@ -5,6 +5,9 @@
 //   this.totalScore = totalScore;
 // }
 var roll = [];
+var totalScoreArray = [];
+var rollValue = [];
+var roundTotal = 0;
 function Roll(roll) {
   this.roll = roll
 };
@@ -16,14 +19,27 @@ Roll.prototype.addRoll = function(roll) {
 };
 //Front-end logic:
 $(document).ready(function() {
+
+  $("#holdButton").click(function() {
+    console.log(totalScoreArray);
+    for (var i = 0; i <= totalScoreArray.length; i += 1) {
+      roundTotal += totalScoreArray[i];
+      console.log(roundTotal);
+      $("#roundTotal").append("<li>" + "Your turn is over!" + "</li>")
+    }
+  });
+
   $("#rollForm").submit(function() {
     event.preventDefault();
     var newRoll = new Roll(roll);
-    var rollValue = newRoll.addRoll();
+    rollValue = newRoll.addRoll();
     if (rollValue === 1) {
       $("#roundTotal").append("<li>" + "Your turn is over!" + "</li>");
     } else {
       $("#roundTotal").append("<li>" + rollValue + "</li>");
     }
+    totalScoreArray.push(rollValue);
+    console.log(totalScoreArray);
   });
+
 });
