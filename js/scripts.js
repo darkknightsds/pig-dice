@@ -9,7 +9,6 @@ var totalScoreArray = [];
 var rollValue = [];
 var total = 0;
 var roundTotal = [];
-// var whatever =
 function Roll(roll) {
   this.roll = roll
 };
@@ -28,6 +27,8 @@ $(document).ready(function() {
       roundTotal = total += totalScoreArray[i];
     }
     $("#totalScore").append("<li>" + roundTotal + "</li>");
+    $("#roundTotal").children().remove();
+    totalScoreArray = [];
   });
 
   $("#rollForm").submit(function() {
