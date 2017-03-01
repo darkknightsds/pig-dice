@@ -7,7 +7,9 @@
 var roll = [];
 var totalScoreArray = [];
 var rollValue = [];
-var roundTotal = 0;
+var total = 0;
+var roundTotal = [];
+// var whatever =
 function Roll(roll) {
   this.roll = roll
 };
@@ -22,11 +24,10 @@ $(document).ready(function() {
 
   $("#holdButton").click(function() {
     console.log(totalScoreArray);
-    for (var i = 0; i <= totalScoreArray.length; i += 1) {
-      roundTotal += totalScoreArray[i];
-      console.log(roundTotal);
-      $("#roundTotal").append("<li>" + "Your turn is over!" + "</li>")
+    for (var i = 0; i < totalScoreArray.length; i += 1) {
+      roundTotal = total += totalScoreArray[i];
     }
+    $("#totalScore").append("<li>" + roundTotal + "</li>");
   });
 
   $("#rollForm").submit(function() {
@@ -39,7 +40,6 @@ $(document).ready(function() {
       $("#roundTotal").append("<li>" + rollValue + "</li>");
     }
     totalScoreArray.push(rollValue);
-    console.log(totalScoreArray);
   });
 
 });
