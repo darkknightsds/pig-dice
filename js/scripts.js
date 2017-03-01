@@ -26,7 +26,7 @@ $(document).ready(function() {
     for (var i = 0; i < totalScoreArray.length; i += 1) {
       roundTotal = total += totalScoreArray[i];
     }
-    $("#totalScore").append("<li>" + roundTotal + "</li>");
+    $("#totalScore").text(roundTotal);
     $("#roundTotal").children().remove();
     totalScoreArray = [];
   });
