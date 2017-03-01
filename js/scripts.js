@@ -26,7 +26,12 @@ $(document).ready(function() {
     for (var i = 0; i < totalScoreArray.length; i += 1) {
       roundTotal = total += totalScoreArray[i];
     }
-    $("#totalScore").text(roundTotal);
+    if (roundTotal >= 100) {
+      $("#totalScore").text(roundTotal + ": You won Pig Dice!");
+      // roundTotal = [];
+    } else {
+      $("#totalScore").text(roundTotal);
+    }
     $("#roundTotal").children().remove();
     totalScoreArray = [];
   });
@@ -37,8 +42,9 @@ $(document).ready(function() {
     rollValue = newRoll.addRoll();
     if (rollValue === 1) {
       rollValue = 0;
+      totalScoreArray = [];
       $("#roundTotal").children().remove();
-      $("#roundTotal").append("<li>" + "1: Your turn is over!" + "</li>");
+      $("#roundTotal").append("<li>" + "1: Your turn is over! Press hold to pass." + "</li>");
     } else {
       $("#roundTotal").append("<li>" + rollValue + "</li>");
     }
