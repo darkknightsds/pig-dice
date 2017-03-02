@@ -8,13 +8,14 @@ var roll = [];
 var roundScore = [];
 var rollValue = [];
 var gameTotal = [];
+var player1Total =[];
+var player2Total = [];
 var zero = 0;
 var currentRoll;
 var player1Array =[];
 var player2Array = [];
-var player1Count = player1Array.length;
-var player2Count = player2Array.length;
-
+var player1Roll = new Roll();
+var player2Roll = new Roll();
 function Roll(roll) {
   this.roll = roll;
 };
@@ -25,10 +26,8 @@ Roll.prototype.addRoll = function() {
 };
 //Front-end logic:
 $(document).ready(function() {
-  var player1Roll = new Roll();
-  var player2Roll = new Roll();
-  console.log(player1Count);
-  console.log(player2Count);
+  console.log(player1Array.length);
+  console.log(player2Array.length);
   $("#rollForm").submit(function() {
     event.preventDefault();
     if (player1Array.length > player2Array.length) {
@@ -38,43 +37,51 @@ $(document).ready(function() {
     }
     rollValue = currentRoll.addRoll();
     console.log(currentRoll === player1Roll);
-    if (currentRoll = player1Roll && rollValue === 1) {
+    if (currentRoll === player1Roll && rollValue === 1) {
       rollValue = 0;
       totalScore = [];
       $("#roundTotal").children().remove();
       $("#roundTotal").append("<li>" + "1: Your turn is over! Press hold to pass." + "</li>");
       $("#rollButton").hide();
-    } else if (currentRoll = player1Roll) {
+    } else if (currentRoll === player1Roll) {
       $("#roundTotal").append("<li>" + rollValue + "</li>");
-    } else if (currentRoll = player2Roll && rollValue === 1) {
+    } else if (currentRoll === player2Roll && rollValue === 1) {
       rollValue = 0;
       totalScore = [];
       $("#roundTotal").children().remove();
       $("#roundTotal").append("<li>" + "1: Your turn is over! Press hold to pass." + "</li>");
       $("#rollButton").hide();
-    } else if (currentRoll = player2Roll) {
+    } else {
       $("#roundTotal").append("<li>" + rollValue + "</li>");
     }
     roundScore.push(rollValue);
   });
   $("#holdButton").click(function() {
     console.log(currentRoll === player1Roll);
+    console.log(gameTotal);
+    console.log(roundScore);
     for (var i = 0; i < roundScore.length; i += 1) {
-      gameTotal = zero += roundScore[i];
+      if (currentRoll === player1Roll) {
+        player1Total = zero += roundScore[i];
+      } else {
+        player2Total = zero += roundScore[i];
+      }
     }
-    if (currentRoll = player1Roll && gameTotal >= 100) {
-      $("#player1Score").text(gameTotal + ": You won Pig Dice!");
-    } else if (currentRoll = player1Roll) {
-      $("#player1Score").text(gameTotal);
-      player1Array.push(gameTotal);
-    } else if (currentRoll = player2Roll && gameTotal >= 100) {
-      $("#player2Score").text(gameTotal + ": You won Pig Dice!")
-    } else if (currentRoll = player2Roll) {
-      $("#player2Score").text(gameTotal);
-      player2Array.push(gameTotal);
+
+    if (currentRoll === player1Roll && gameTotal >= 100) {
+      $("#player1Score").text(player1Total + ": You won Pig Dice!");
+    } else if (currentRoll === player1Roll) {
+      $("#player1Score").text(player1Total);
+      player1Array.push(player1Total);
+    } else if (currentRoll === player2Roll && gameTotal >= 100) {
+      $("#player2Score").text(player2Total + ": You won Pig Dice!")
+    } else {
+      $("#player2Score").text(player2Total);
+      player2Array.push(player2Total);
     }
     $("#roundTotal").children().remove();
     roundScore = [];
+    // gameTotal = [];
     $("#rollButton").show();
     console.log(player1Array.length);
     console.log(player2Array.length);
