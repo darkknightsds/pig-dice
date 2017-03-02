@@ -3,7 +3,7 @@ var roll = [];
 var roundScore = [];
 var roundScore2 = [];
 var rollValue;
-var gameTotal = [];
+var gameTotal;
 var player1Total = 0;
 var player2Total = 0;
 var currentRoll;
@@ -39,41 +39,40 @@ $(document).ready(function() {
       $("#roundTotal").append("<li>" + rollValue + "</li>");
     } else if (currentRoll === player2Roll && rollValue === 1) {
       rollValue = 0;
-      roundScore2 = [];
+      roundScore = [];
       $("#roundTotal").children().remove();
       $("#roundTotal").append("<li>" + "1: Your turn is over! Press hold to pass." + "</li>");
       $("#rollButton").hide();
     } else {
       $("#roundTotal").append("<li>" + rollValue + "</li>");
     }
-    if (currentRoll === player1Roll) {
-      roundScore.push(rollValue);
-    } else {
-      roundScore2.push(rollValue);
-    }
+    roundScore.push(rollValue);
+    console.log(roundScore);
   });
   $("#holdButton").click(function() {
     event.preventDefault();
-    if (currentRoll === player1Roll && gameTotal >= 100) {
-      for (var i = 0; i < roundScore.length; i += 1) {
-        player1Total += roundScore[i]; }
-        $("#player1Score").text(player1Total + ": You won Pig Dice!");
-      } else if (currentRoll === player1Roll) {
-        for (var i = 0; i < roundScore.length; i += 1) {
-          player1Total += roundScore[i]; }
-          $("#player1Score").text(player1Total);
-          player1Array.push(player1Total);
-      } else if (currentRoll === player2Roll && gameTotal >= 100) {
-        for (var x = 0; x < roundScore2.length; x += 1) {
-          player2Total += roundScore2[x]; }            $("#player2Score").text(player2Total + ": You won Pig Dice!")
+    console.log(currentRoll === player1Roll);
+    for (var i = 0; i < roundScore.length; i ++) {
+      if (currentRoll === player1Roll) {
+        gameTotal = player1Total += roundScore[i];
       } else {
-        for (var x = 0; x < roundScore2.length; x += 1) {
-          player2Total += roundScore2[x]; }   $("#player2Score").text(player2Total);
-          player2Array.push(player2Total);
-      };
+        gameTotal = player2Total += roundScore[i];
+      }
+    }
+    console.log(gameTotal);
+    if (currentRoll === player1Roll && gameTotal >= 100) {
+        $("#player1Score").text(gameTotal + ": You won Pig Dice!");
+      } else if (currentRoll === player1Roll) {
+        $("#player1Score").text(gameTotal);
+        player1Array.push(gameTotal);
+      } else if (currentRoll === player2Roll && gameTotal >= 100) {
+        $("#player2Score").text(gameTotal + ": You won Pig Dice!")
+      } else {
+        $("#player2Score").text(gameTotal);
+        player2Array.push(gameTotal);
+      }
     $("#roundTotal").children().remove();
-    roundScore = [];
-    roundScore2 = [];
     $("#rollButton").show();
+    roundScore = [];
   });
 });
