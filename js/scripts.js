@@ -5,22 +5,22 @@
 //   this.totalScore = totalScore;
 // }
 var roll = [];
+var roll2 = [];
 var totalScoreArray = [];
-var rollValue = [];
-var total = 0;
-var roundTotal = [];
 var totalScoreArray2 = [];
+var rollValue = [];
 var rollValue2 = [];
+var roundTotal = [];
 var roundTotal2 = [];
+var total = 0;
 
 function Roll(roll) {
-  this.roll = roll
+  this.roll = roll;
 };
 Roll.prototype.addRoll = function(roll) {
   min = Math.ceil(1);
   max = Math.floor(6);
   return Math.floor(Math.random() * (max - min + 1)) + min;
-  return this.roll
 };
 //Front-end logic:
 $(document).ready(function() {
@@ -42,7 +42,6 @@ $(document).ready(function() {
     $("#rollForm").hide();
     $("#rollForm2").show();
   });
-
   $("#rollForm").submit(function() {
     event.preventDefault();
     var newRoll = new Roll(roll);
@@ -66,7 +65,7 @@ $(document).ready(function() {
     }
     if (roundTotal2 >= 100) {
       $("#totalScore2").text(roundTotal2 + ": You won Pig Dice!");
-      // roundTotal = [];
+      // roundTotal2 = [];
     } else {
       $("#totalScore2").text(roundTotal2);
     }
@@ -76,10 +75,9 @@ $(document).ready(function() {
     $("#rollForm2").hide();
     $("#rollForm").show();
   });
-
   $("#rollForm2").submit(function() {
     event.preventDefault();
-    var newRoll2 = new Roll(roll);
+    var newRoll2 = new Roll(roll2);
     rollValue2 = newRoll2.addRoll();
     if (rollValue2 === 1) {
       rollValue2 = 0;
