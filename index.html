@@ -9,29 +9,47 @@
 </head>
 <body>
   <div class="container">
-    <h1>Pig Dice</h1>
+    <h1>"Pig Dice"</h1>
     <img src="img/prince-dice.png" alt="Prince throwing dice" id="prince">
     <div class="row">
-      <div class="col-md-5">
+      <div class="col-md-12">
         <h2>Press "Roll" to Begin</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
         <form id="rollForm">
           <button type="submit" class="btn" id="rollButton">Roll</button>
-          <span class="btn btn-primary" id="holdButton">Hold</span>
+          <button type="click" class="btn" id="holdButton">Pass</span>
         </form>
-        <h2>Current Turn:</h2>
-        <ul id=roundTotal>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Current Turn Score:</h2>
+        <ul class="scores well-sm" id=roundTotal>
         </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5 well">
         <h2>Player 1 Score:</h2>
         <div id="player1">
-          <ul id="player1Score">
-          </ul>
-        </div>
-        <h2>Player 2 Score:</h2>
-        <div id="player2">
-          <ul id="player2Score">
+          <ul class="scores" id="player1Score">
           </ul>
         </div>
       </div>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-5 well">
+        <h2>Player 2 Score:</h2>
+        <div id="player2">
+          <ul class="scores" id="player2Score">
+          </ul>
+        </div>
+      </div>
+    </div>
+    <img src="img/dice.gif" alt="Rolling dice"
   </div>
 </body>
 </html>

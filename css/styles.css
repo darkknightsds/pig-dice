@@ -1,12 +1,52 @@
+body {
+  background-image: url("../img/brick.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
 h1 {
   font-size: 64px;
+  text-align: center;
+  color: #FFFFFF;
+  text-shadow: 2px 2px #565656;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+h2 {
+  color: #FFFFFF;
+  text-align: center;
+}
+.scores {
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 34px;
+}
+img {
+  display: block;
+  margin: auto;
+}
+.well {
+  height: 250px;
+  background-color: #000000;
+  opacity: 0.8;
+}
+.well-sm {
+  height: auto;
+  background-color: #000000;
+  opacity: 0.8;
+}
+#rollForm {
   text-align: center;
 }
 #roundTotal, #player1Score, #player2Score {
   list-style-type: none;
 }
-#prince {
-  display: block;
-  margin: auto;
-  height:
+#rollButton {
+  width: 120px;
+  height: 60px;
+}
+#holdButton {
+  width: 120px;
+  height: 60px;
 }
