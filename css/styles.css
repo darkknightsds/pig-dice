@@ -14,17 +14,26 @@ h1 {
   font-weight: bold;
 }
 h2 {
-  color: #FFFFFF;
   text-align: center;
+  color: #FFFFFF;
+  text-shadow: 2px 2px #565656;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+img {
+  display: block;
+  margin: auto;
 }
 .scores {
   color: #FFFFFF;
   text-align: center;
   font-size: 34px;
 }
-img {
-  display: block;
-  margin: auto;
+.instructions {
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 18px;
+  list-style-type: none;
 }
 .well {
   height: 250px;
@@ -32,6 +41,7 @@ img {
   opacity: 0.8;
 }
 .well-sm {
+  min-height: 150px;
   height: auto;
   background-color: #000000;
   opacity: 0.8;
@@ -45,8 +55,12 @@ img {
 #rollButton {
   width: 120px;
   height: 60px;
+  font-size: 18px;
+  font-weight: bold;
 }
 #holdButton {
   width: 120px;
   height: 60px;
+  font-size: 18px;
+  font-weight: bold;
 }
