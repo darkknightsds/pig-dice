@@ -33,7 +33,7 @@ $(document).ready(function() {
       rollValue = 0;
       roundScore = [];
       $("#roundTotal").children().remove();
-      $("#roundTotal").append("<li>" + "1: Your turn is over! Press hold to pass." + "</li>");
+      $("#roundTotal").append("<li>" + "1: Your turn is over! Press pass to continue." + "</li>");
       $("#rollButton").hide();
     } else if (currentRoll === player1Roll) {
       $("#roundTotal").append("<li>" + rollValue + "</li>");

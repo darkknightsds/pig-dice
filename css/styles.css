@@ -57,10 +57,14 @@ img {
   height: 60px;
   font-size: 18px;
   font-weight: bold;
+  background-color: #009246;
+  color: #FFFFFF;
 }
 #holdButton {
   width: 120px;
   height: 60px;
   font-size: 18px;
   font-weight: bold;
+  background-color: #ce2b37;
+  color: #FFFFFF;
 }
