@@ -1,3 +1,5 @@
+This fun web application allows users to simulate playing the classic alley dice game, "Pig Dice." Specs for behavior driven development are listed below.
+
 | behavior |  input   |  output  |
 |----------|:--------:|:--------:|
 | It can return a random number 1-6 upon submit. | "Roll" | 4 |
